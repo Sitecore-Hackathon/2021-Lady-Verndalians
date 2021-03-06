@@ -215,7 +215,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Applications\Media\ImageProperties\CrowdsourcedImageController.cs" />
     <Compile Include="Applications\Media\ImageProperties\ImagePropertiesPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
