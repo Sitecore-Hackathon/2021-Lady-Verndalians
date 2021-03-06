@@ -14,16 +14,15 @@
 </head>
 <body>
     <header id="header">
-        @Html.Sitecore().Placeholder("BodyTop")
+        @{ Html.RenderPartial("~/Views/Navigation/Header.cshtml"); }
     </header>
     <section id="content">
-        <div id="page" class="page">
+        <div id="page" class="page" padding-top: 20px;>
             @Html.Sitecore().Placeholder("Rows")
         </div>
     </section>
-    
     <footer id="footer">
-        @Html.Sitecore().Placeholder("Footer")
-    </div>
+        @{ Html.RenderPartial("~/Views/Navigation/Footer.cshtml"); }
+     </footer>
 </body>
 </html>
