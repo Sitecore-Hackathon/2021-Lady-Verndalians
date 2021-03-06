@@ -2,6 +2,7 @@
 using Sitecore.Data.Fields;
 using System.Web;
 using System.Web.Mvc;
+using Sitecore.Data.Items;
 
 namespace Website.Extensions
 {
@@ -10,22 +11,22 @@ namespace Website.Extensions
         public static HtmlString HumanizedImage(this HtmlHelper<ArticleModel> helper, ImageField imageField)
         {
 
-            if (imageField == null || imageField.MediaItem == null) return new HtmlString("");
+            if (imageField?.MediaItem == null) return new HtmlString("");
 
-            Sitecore.Data.Items.MediaItem image = new Sitecore.Data.Items.MediaItem(imageField.MediaItem);
-
-            string src = Sitecore.StringUtil.EnsurePrefix('/', Sitecore.Resources.Media.MediaManager.GetMediaUrl(image));
+            var src = Sitecore.StringUtil.EnsurePrefix('/', Sitecore.Resources.Media.MediaManager.GetMediaUrl(imageField.MediaItem));
 
             var alt =  $" alt={imageField.Alt}";
 
-            var crowdsourcedtext = image.InnerItem.Fields["CrowdSourced Alt Text"]?.Value;
+            var regularItem = Sitecore.Context.Item.Database.GetItem(imageField.MediaID);
 
-            var img = $"<img src='{src}' {alt} />";
+            var crowdsourcedtext = regularItem.Fields["CrowdSourced Alt Text"]?.Value;
+
+            var img = $"<img style='max-width:300px' src='{src}' {alt} />";
 
             if (string.IsNullOrEmpty(crowdsourcedtext))
                 return new HtmlString(img);
             
-            var wrapper = $"<div>{img}<a href =\"#ex1\" rel=\"modal:open\" style=\"float:right\">Humanize</a></ div>";
+            var wrapper = $"<div style='display:block; max-width:300px'>{img}<a href =\"#ex1\" rel=\"modal:open\" style=\"float:right\">Humanize</a></div>";
 
             return new HtmlString(wrapper);
         }
