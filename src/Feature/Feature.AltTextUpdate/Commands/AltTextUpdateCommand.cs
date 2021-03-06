@@ -1,6 +1,5 @@
 ﻿using Feature.AltTextUpdate.Repositories;
 using Sitecore;
-using Sitecore.Diagnostics;
 using Sitecore.SecurityModel;
 using Sitecore.Shell.Framework.Commands;
 using System.Collections.Specialized;
@@ -19,8 +18,8 @@ namespace Feature.AltTextUpdate.Commands
             {
                 var mediaItem = (Sitecore.Data.Items.MediaItem)sitecoreItem;               
 
-                var imageStream = mediaItem.GetMediaStream();               
-                var azureAltTextRepository = new AzureAltTextRepository();
+                var imageStream = mediaItem.GetMediaStream();
+                IAzureAltTextRepository azureAltTextRepository = new AzureAltTextRepository();
                 var altTextResult = azureAltTextRepository.GetImageDescription(imageStream, mediaItem.InnerItem.Language.Name);
 
                 var altText = altTextResult.Description != null ? altTextResult.Description : string.Empty;
@@ -40,29 +39,11 @@ namespace Feature.AltTextUpdate.Commands
                         finally
                         {
                             mediaItem.EndEdit();
-                            Sitecore.Context.ClientPage.ClientResponse.Alert($"Alt text returned from Azure:<br> {altText}.");
+                            Context.ClientPage.ClientResponse.Alert($"Alt text returned from Azure:<br> {altText}.");
                         }                                           
                     }
                 }
             }
-        }
-
-
-        public override CommandState QueryState(CommandContext context)
-        {
-            Error.AssertObject((object)context, "context");
-
-            if (context.Items.Length == 0)
-            {
-                return CommandState.Disabled;
-            }
-
-            if (context.Items[0].TemplateID.ToString() != "{DC9E710B-590E-491C-8D38-64157C181BF4}")
-            {
-                return CommandState.Hidden;
-            }
-
-            return base.QueryState(context);
         }
     }
 }

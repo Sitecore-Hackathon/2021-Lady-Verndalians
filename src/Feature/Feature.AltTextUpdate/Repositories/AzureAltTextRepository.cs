@@ -44,7 +44,7 @@ namespace Feature.AltTextUpdate.Repositories
 
         private ImageAnalysis RequestImageAnalysisToComputerVisionAPI(byte[] imageByteArray, string language)
         {
-            ImageAnalysis analyzedImageStream = null;
+            ImageAnalysis analyzedImage = null;
             
             try
             {
@@ -63,14 +63,14 @@ namespace Feature.AltTextUpdate.Repositories
                 HttpWebResponse response = (HttpWebResponse)request.GetResponse();               
                                 
                 var reader = new StreamReader(response.GetResponseStream());
-                analyzedImageStream = JsonConvert.DeserializeObject<ImageAnalysis>(reader.ReadToEnd());
+                analyzedImage = JsonConvert.DeserializeObject<ImageAnalysis>(reader.ReadToEnd());
             }
             catch (HttpRequestException ex)
             {
                 throw;
             }
             
-            return analyzedImageStream;
+            return analyzedImage;
         }
 
         private IEnumerable<string> GetCaptionsFromImageAnalysis(ImageAnalysis analysis)
