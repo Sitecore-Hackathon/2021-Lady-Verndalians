@@ -9,13 +9,16 @@ namespace Website.Extensions
     {
         public static HtmlString HumanizedImage(this HtmlHelper<ArticleModel> helper, ImageField imageField)
         {
-            var mediaItem = imageField.MediaItem;
-            
-            var src = Sitecore.Resources.Media.MediaManager.GetMediaUrl(mediaItem);
+
+            if (imageField == null || imageField.MediaItem == null) return new HtmlString("");
+
+            Sitecore.Data.Items.MediaItem image = new Sitecore.Data.Items.MediaItem(imageField.MediaItem);
+
+            string src = Sitecore.StringUtil.EnsurePrefix('/', Sitecore.Resources.Media.MediaManager.GetMediaUrl(image));
 
             var alt =  $" alt={imageField.Alt}";
 
-            var crowdsourcedtext = mediaItem.Fields["CrowdSourced Alt Text"]?.Value;
+            var crowdsourcedtext = image.InnerItem.Fields["CrowdSourced Alt Text"]?.Value;
 
             var img = $"<img src='{src}' {alt} />";
 
