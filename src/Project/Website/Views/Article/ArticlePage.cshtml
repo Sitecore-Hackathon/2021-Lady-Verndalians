@@ -1,8 +1,6 @@
 ﻿@using Website.Extensions
 @model Feature.Articles.Models.ArticleModel
 
-
-
 @if (Model == null)
 {
     return;
@@ -19,7 +17,12 @@ Date : @Html.Raw(Model.Date)
 
 <!-- Modal HTML embedded directly into document -->
 <div id="ex1" class="modal">
-    <h2>Humanize Project</h2>
+    <h2>Help Us Humanize</h2>
+
+    <div style="padding-left:10px;padding-top:10px;">
+        <img style="width:50px" src="/images/venmo.png" />
+    </div>
+
     <form id="Form1" method="post">
         <fieldset style="border: none;">
             <label for="venmo-account">Add your Venmo Account so we can pay you!</label>
@@ -29,9 +32,14 @@ Date : @Html.Raw(Model.Date)
             <label for="manual-entry">Enter an appropriate phrase for this image</label>
             <input style="display: block;" type="text" name="manual-entry" required id="input-text" />
         </fieldset>
-        <button id="submit-tag-choice">Submit</button>
+        <fieldset style="border: none;">
+            <button id="submit-tag-choice">Submit</button>
+        </fieldset>
     </form>
-    <a href="#" rel="modal:close">Close</a>
+    <div style="text-align:right;padding-left:10px;padding-top:10px;">
+        <a style="color: #E74C00;" href="#" rel="modal:close">Close</a>  <div> Tweet your experience!</div>
+        <img style="width:50px" src="/images/twitter.png" />
+    </div>
 </div>
 
 @{
@@ -56,7 +64,7 @@ Date : @Html.Raw(Model.Date)
                 "id": id
             }),
             success: function (data) {
-                alert('yay');
+                alert('Thank you! Please click on the Twitter logo to tweet about your experience!');
             }
         });
     });
