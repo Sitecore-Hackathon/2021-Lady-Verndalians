@@ -1,0 +1,13 @@
+﻿@using Website.Extensions
+@model Website.Models.HomePageModel
+
+@if (Model == null)
+{
+    return;
+}
+
+<img src="@Model.HeroImageSrc" class="img-responsive" alt="" width="980" height="513">
+
+
+
+@Html.Raw(Model.HomePageContent)
