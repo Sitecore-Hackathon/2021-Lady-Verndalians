@@ -21,12 +21,12 @@ namespace Website.Extensions
 
             var crowdsourcedtext = regularItem.Fields["CrowdSourced Alt Text"]?.Value;
 
-            var img = $"<img style='max-width:300px' src='{src}' {alt} />";
+            var img = $"<img style='max-width:980px' src='{src}' {alt} />";
 
             if (string.IsNullOrEmpty(crowdsourcedtext))
                 return new HtmlString(img);
             
-            var wrapper = $"<div style='display:block; max-width:300px'>{img}<a href =\"#ex1\" rel=\"modal:open\" style=\"float:right\">Humanize</a></div>";
+            var wrapper = $"<div style='display:block; max-width:980px'>{img}<a href =\"#ex1\" rel=\"modal:open\" style=\"float:right\">Humanize</a></div>";
 
             return new HtmlString(wrapper);
         }

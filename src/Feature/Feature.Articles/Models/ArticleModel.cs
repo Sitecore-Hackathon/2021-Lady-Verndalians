@@ -2,6 +2,7 @@
 using Sitecore.Data.Items;
 using Sitecore.Links;
 using Sitecore.Web.UI.WebControls;
+using System.Web;
 
 namespace Feature.Articles.Models
 {
@@ -29,7 +30,8 @@ namespace Feature.Articles.Models
         {
             get
             {
-                return ArticleItem.Fields["Article Content"].Value;
+                var htmlConent = ArticleItem["Article Content"];
+                return htmlConent;
             }
         }
 

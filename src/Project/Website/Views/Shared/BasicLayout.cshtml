@@ -10,17 +10,21 @@
     <!-- jQuery Modal -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.css" />
+    <link rel="stylesheet" href="~/Content/Site.css" />
 </head>
 <body>
-    <div id="header">
+    <header id="header">
         @Html.Sitecore().Placeholder("BodyTop")
-    </div>
-    <div id="page">
-        @Html.Sitecore().Placeholder("Rows")
-    </div>
-    <div id="footer">
+    </header>
+    <section id="content">
+        <div id="page" class="page">
+            @Html.Sitecore().Placeholder("Rows")
+        </div>
+    </section>
+    
+    <footer id="footer">
         @Html.Sitecore().Placeholder("Footer")
-    </div>
+    </footer>
 
     <!-- Modal HTML embedded directly into document -->
     <div id="ex1" class="modal">
