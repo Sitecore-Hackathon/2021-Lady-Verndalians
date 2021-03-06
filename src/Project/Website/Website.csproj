@@ -263,12 +263,14 @@
     <Content Include="Content\Site.css" />
     <Content Include="Global.asax" />
     <Content Include="Properties\PublishProfiles\Debug.pubxml.user" />
+    <Content Include="sitecore\shell\Applications\Media\ImageProperties\ImageProperties.xaml.xml" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RazorGeneratorMvcStart.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\Article\ArticleController.cs" />
+    <Compile Include="Extensions\HtmlHelperExtensions.cs" />
     <Compile Include="Controllers\Article\ArticleListController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -278,6 +280,7 @@
   <ItemGroup>
     <Content Include="App_Config\Include\Feature\Feature.AltTextUpdate.config" />
     <Content Include="App_Config\AppSettings.config" />
+    <Content Include="App_Config\Include\Feature\Feature.Shell.Media.Image.config" />
     <Content Include="App_Config\Include\Project\Project.SiteDefinitions.config" />
     <None Include="packages.config" />
     <Content Include="Views\Web.config" />
