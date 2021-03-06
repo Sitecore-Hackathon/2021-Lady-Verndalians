@@ -308,6 +308,10 @@
       <Project>{939db4c0-5863-4646-b72f-cdcffc420bcd}</Project>
       <Name>Feature.Articles</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Feature\Feature.Shell\Feature.Shell\Feature.Shell.csproj">
+      <Project>{55b11c74-34f6-49b5-8ec8-d23f875712db}</Project>
+      <Name>Feature.Shell</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
