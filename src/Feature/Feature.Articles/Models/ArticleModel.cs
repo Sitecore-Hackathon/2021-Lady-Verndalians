@@ -1,6 +1,6 @@
 ﻿using Sitecore.Data.Fields;
 using Sitecore.Data.Items;
-
+using Sitecore.Links;
 
 namespace Feature.Articles.Models
 {
@@ -29,6 +29,14 @@ namespace Feature.Articles.Models
             get
             {
                 return ArticleItem.Fields["Article Content"].Value;
+            }
+        }
+
+        public string ArticleLink
+        {
+            get
+            {
+                return LinkManager.GetItemUrl(ArticleItem);
             }
         }
     }

@@ -6,7 +6,7 @@ I am an article list!
     @foreach (var article in Model.Articles)
     {
         <li>
-           
+           <a href="@article.ArticleLink">@article.ArticleItem.Name</a>
         </li>
     }
 </ul>
