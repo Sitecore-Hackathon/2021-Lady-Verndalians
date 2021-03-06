@@ -1,5 +1,11 @@
-﻿@model Feature.Articles.Models.ArticleModel
+﻿@using Website.Extensions
+@model Feature.Articles.Models.ArticleModel
 
+@if (Model == null)
+{
+    return;
+}
 
+@Html.HumanizedImage(Model.HeroImage)
 
 I am an article!
