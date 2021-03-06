@@ -276,7 +276,6 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\Shared\BasicLayout.cshtml" />
     <None Include="Properties\PublishProfiles\Debug.pubxml" />
-    <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Article\ArticlePage.cshtml" />
     <None Include="Web.Debug.config">
