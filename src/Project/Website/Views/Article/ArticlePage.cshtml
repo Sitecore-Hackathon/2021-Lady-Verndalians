@@ -8,4 +8,48 @@
 
 @Html.HumanizedImage(Model.HeroImage)
 
+<h1>
+    @Html.Raw(Model.ArticleItem.Name)
+</h1>
+Author : @Html.Raw(Model.Author)
+@Html.Raw(Model.Date)
 @Html.Raw(Model.ArticleContent)
+
+<!-- Modal HTML embedded directly into document -->
+<div id="ex1" class="modal">
+    <h2>Humanize Project</h2>
+    <form id="Form1" method="post">
+        <label for="manual-entry">Enter an appropriate phrase for this image</label>
+        <input type="text" name="manual-entry" id="input-text" />
+        <button id="submit-tag-choice">Submit</button>
+    </form>
+    <a href="#" rel="modal:close">Close</a>
+</div>
+
+@{
+    var heroMediaId = Model.HeroImage.MediaID;
+}
+<script type="text/javascript">
+    $('#submit-tag-choice').click(function(event) {
+        event.preventDefault();
+        this.blur();
+
+        var option = $('#input-text').val();
+        var id = '@heroMediaId';
+
+        $.ajax({
+            url: '/api/sitecore/Ajax/AddCrowdSourceChoice',
+            method: "POST",
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            //method: "POST",
+            data: JSON.stringify({
+                "option": option,
+                "id": id
+            }),
+            success: function (data) {
+                alert('yay');
+            }
+        });
+    });
+</script>

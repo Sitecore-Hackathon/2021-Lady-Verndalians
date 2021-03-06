@@ -2,6 +2,7 @@
 using Sitecore.Data.Items;
 using Sitecore.Links;
 using Sitecore.Web.UI.WebControls;
+using System;
 using System.Web;
 
 namespace Feature.Articles.Models
@@ -32,6 +33,34 @@ namespace Feature.Articles.Models
             {
                 var htmlConent = ArticleItem["Article Content"];
                 return htmlConent;
+            }
+        }
+
+        public string Author
+        {
+            get
+            {
+                if(!string.IsNullOrEmpty(ArticleItem["Author"]))
+                {
+                    return ArticleItem["Author"];
+                }
+
+                return string.Empty;
+                
+            }
+        }
+
+        public string Date
+        {
+            get
+            {
+                DateField dateTimeField = ArticleItem.Fields["Article Date"];
+                string dateTimeString = dateTimeField.Value;
+
+                DateTime dateTimeStruct = Sitecore.DateUtil.IsoDateToDateTime(dateTimeString);
+
+                return dateTimeStruct.ToShortDateString();
+
             }
         }
 
