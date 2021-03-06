@@ -57,7 +57,7 @@ Flow :
 - Smart Publish the site.
 - I have left my subscription keys for Cognitive Services for limited usage and review of module.
 - Alternatively follow the document below_ to set up your own subscription for Cognitive Services.
-![Cognitive Service Setup](docs/Sign up for an Azure Account And Set Up Cognitive Service.docx)
+- [Cognitive Service Setup](/docs/Sign up for an Azure Account And Set Up Cognitive Service.docx)
 
 
 Disclaimer: 
