@@ -25,7 +25,7 @@ How does this module solve it?
 How about we get overwhelmed companies and unemployed people together with crowd-sourcing image alt text?
 We provide an easy way for uneomployed people to get incetivised by companies who simultaneously are experiencing increased engagement and humanized alt text for images.
 
----Pic : Sandy's power paint SS.
+![Lady Verndalian Overview](docs/LadyVerndalianOverview.pptx?raw=true)
 
 ## Video link
 ⟹ Provide a video highlighing your Hackathon module submission and provide a link to the video. You can use any video hosting, file share or even upload the video to this repository. _Just remember to update the link below_
