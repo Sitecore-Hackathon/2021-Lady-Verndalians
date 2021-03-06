@@ -60,10 +60,8 @@ Flow :
 - ![Cognitive Service Setup](docs/Sign-up-for-an-Azure-Account-And-Set-Up-Cognitive-Service.docx?raw=true)
 
 
-Disclaimer: 
-
 > - Sitecore Package files
-  
+  - ![Sitecore Content Package](docs/2021-Lady-Verndalians-Content_Package-1.0.zip?raw=true)
 
 
 ### Configuration
