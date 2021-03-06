@@ -30,7 +30,9 @@ namespace Website.Controllers.Ajax
 
             var crowdSourcedAltText = new NameValueCollection { { "Human", HttpUtility.UrlEncode(option) } };
 
-            var newValue = mediaItem.InnerItem["CrowdSourced Alt Text"] + StringUtil.NameValuesToString(crowdSourcedAltText, "&");
+            var currentValue = mediaItem.InnerItem["CrowdSourced Alt Text"];
+
+            var newValue = $"{currentValue}&{StringUtil.NameValuesToString(crowdSourcedAltText, "&")}";
 
             using (new SecurityDisabler())
             {
