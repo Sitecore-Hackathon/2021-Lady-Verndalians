@@ -1,4 +1,5 @@
-﻿using System.Collections.Specialized;
+﻿using System;
+using System.Collections.Specialized;
 using System.Web;
 using System.Web.Mvc;
 using Sitecore;
@@ -28,7 +29,11 @@ namespace Website.Controllers.Ajax
 
             if (string.IsNullOrEmpty(option)) return Json(null);
 
-            var crowdSourcedAltText = new NameValueCollection { { "Human", HttpUtility.UrlEncode(option) } };
+            var rand = new Random();
+
+            var randNumber = rand.Next(99999);
+
+            var crowdSourcedAltText = new NameValueCollection { { $"Human{randNumber}", HttpUtility.UrlEncode(option) } };
 
             var currentValue = mediaItem.InnerItem["CrowdSourced Alt Text"];
 

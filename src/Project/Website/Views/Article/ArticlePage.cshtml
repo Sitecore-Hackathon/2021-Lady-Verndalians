@@ -1,6 +1,8 @@
 ﻿@using Website.Extensions
 @model Feature.Articles.Models.ArticleModel
 
+
+
 @if (Model == null)
 {
     return;
@@ -19,8 +21,14 @@ Date : @Html.Raw(Model.Date)
 <div id="ex1" class="modal">
     <h2>Humanize Project</h2>
     <form id="Form1" method="post">
-        <label for="manual-entry">Enter an appropriate phrase for this image</label>
-        <input type="text" name="manual-entry" id="input-text" />
+        <fieldset style="border: none;">
+            <label for="venmo-account">Add your Venmo Account so we can pay you!</label>
+            <input style="display: block;" type="text" name="venmo-account" id="venmo-acct" />
+        </fieldset>
+        <fieldset style="border: none;">
+            <label for="manual-entry">Enter an appropriate phrase for this image</label>
+            <input style="display: block;" type="text" name="manual-entry" required id="input-text" />
+        </fieldset>
         <button id="submit-tag-choice">Submit</button>
     </form>
     <a href="#" rel="modal:close">Close</a>
