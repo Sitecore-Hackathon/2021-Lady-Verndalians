@@ -294,6 +294,8 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Article\ArticlePage.cshtml" />
     <Content Include="Views\Article\ArticleList.cshtml" />
+    <Content Include="Views\Navigation\Header.cshtml" />
+    <Content Include="Views\Navigation\Footer.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
