@@ -50,8 +50,8 @@ namespace Feature.AltTextUpdate.Repositories
 
             try
             {
-                // https://hackathon2021.cognitiveservices.azure.com/vision/v2.0/analyze
-                var url = $"{ConfigurationManager.AppSettings["cognitiveServicesUri"]}vision/v2.0/analyze";
+                // https://hackathon2021.cognitiveservices.azure.com/vision/v2.1/analyze?visualFeatures=Description,Tags
+                var url = $"{ConfigurationManager.AppSettings["cognitiveServicesUri"]}vision/v2.0/analyze?visualFeatures=Description,Tags";
                 var request = WebRequest.CreateHttp(new Uri(url));
                 request.ContentType = "application/octet-stream";
                 var subscriptionKey = ConfigurationManager.AppSettings["subscriptionKey"];
