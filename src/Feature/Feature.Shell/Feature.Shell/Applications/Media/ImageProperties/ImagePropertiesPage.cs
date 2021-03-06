@@ -13,7 +13,7 @@ using System;
 using System.Web.UI.WebControls;
 using ListItem = System.Web.UI.WebControls.ListItem;
 
-namespace LadyVerndalians.Feature.Shell.Applications.Media.ImageProperties
+namespace Feature.Shell.Applications.Media.ImageProperties
 {
     /// <summary>Represents a GridDesignerPage.</summary>
     public class ImagePropertiesPage : DialogPage
@@ -217,14 +217,9 @@ namespace LadyVerndalians.Feature.Shell.Applications.Media.ImageProperties
                 this.Aspect.Checked = false;
                 this.Aspect.Disabled = true;
             }
-            if (!Sitecore.MainUtil.GetBool(urlHandle["disablewidth"], false))
-                return;
-            this.WidthEdit.Enabled = false;
-            this.Aspect.Checked = false;
-            this.Aspect.Disabled = true;
 
             //Azure=azurevalue&human1=human1value&huma2=human2value
-            var nameValueString = xmlValue.GetAttribute("CrowdSourced Alt Text");
+            var nameValueString = obj["CrowdSourced Alt Text"];
 
             var nameValueList = WebUtil.ParseUrlParameters(nameValueString);
 
@@ -243,6 +238,14 @@ namespace LadyVerndalians.Feature.Shell.Applications.Media.ImageProperties
 
                 this.CrowdsourcedDropDownList.Items.Insert(index++, new ListItem(listItem));
             }
+
+            if (!Sitecore.MainUtil.GetBool(urlHandle["disablewidth"], false))
+                return;
+            this.WidthEdit.Enabled = false;
+            this.Aspect.Checked = false;
+            this.Aspect.Disabled = true;
+
+           
         }
     }
 }

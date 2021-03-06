@@ -262,11 +262,13 @@
   <ItemGroup>
     <Content Include="Content\Site.css" />
     <Content Include="Properties\PublishProfiles\Debug.pubxml.user" />
+    <Content Include="sitecore\shell\Applications\Media\ImageProperties\ImageProperties.xaml.xml" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RazorGeneratorMvcStart.cs" />
     <Compile Include="Controllers\Article\ArticleController.cs" />
+    <Compile Include="Extensions\HtmlHelperExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
