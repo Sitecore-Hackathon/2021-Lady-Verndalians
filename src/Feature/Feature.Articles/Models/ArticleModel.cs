@@ -1,9 +1,6 @@
-﻿using Sitecore.Data.Items;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Sitecore.Data.Fields;
+using Sitecore.Data.Items;
+
 
 namespace Feature.Articles.Models
 {
@@ -19,11 +16,11 @@ namespace Feature.Articles.Models
             ArticleItem = item;
         }
 
-        public string HeroImage
+        public ImageField HeroImage
         {
             get
             {
-                return ArticleItem.Fields["Hero Image"].Value;
+                return ArticleItem.Fields["Hero Image"];
             }
         } 
 
