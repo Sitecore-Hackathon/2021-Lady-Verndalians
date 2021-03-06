@@ -34,15 +34,12 @@ namespace Feature.AltTextUpdate.Commands
                         croudSourcedAltText.Add(key, HttpUtility.UrlEncode(altText));
                         try
                         {
-                            //mediaItem.InnerItem["CrowdSourced Alt Text"] = StringUtil.NameValuesToString(croudSourcedAltText, "&");
-                            //var urlEncodedText = HttpUtility.UrlEncode(altText);
-                            var urlEncodedText = HttpUtility.UrlEncode(altText);
-                            mediaItem.InnerItem["Alt"] = urlEncodedText;
+                            mediaItem.InnerItem["CrowdSourced Alt Text"] = StringUtil.NameValuesToString(croudSourcedAltText, "&");
                         }
                         finally
                         {
                             mediaItem.EndEdit();
-                            Sitecore.Context.ClientPage.ClientResponse.Alert($"Alt text returned from Azure:<br> {altText}.");
+                            Context.ClientPage.ClientResponse.Alert($"Alt text returned from Azure:<br> {altText}.");
                         }                                           
                     }
                 }
