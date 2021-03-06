@@ -26,7 +26,7 @@ namespace Website.Extensions
             if (string.IsNullOrEmpty(crowdsourcedtext))
                 return new HtmlString(img);
             
-            var wrapper = $"<div style='display:block; max-width:920px'>{img}<a href =\"#ex1\" rel=\"modal:open\" style=\"color: #E74C00;float:right;font-size:smaller;\">Humanize</a></div>";
+            var wrapper = $"<div style='display:block; max-width:980px'>{img}<a href =\"#ex1\" rel=\"modal:open\" style=\"color: #E74C00;float:right;font-size:smaller;\">Humanize</a></div>";
 
             return new HtmlString(wrapper);
         }
