@@ -285,8 +285,7 @@
     <Content Include="App_Config\Include\Feature\Feature.Shell.Media.Image.config" />
     <Content Include="App_Config\Include\Project\Project.SiteDefinitions.config" />
     <Content Include="App_Config\Include\Feature\Feature.Shell.Media.Image.config" />
-    <Content Include="App_Data\packages\crowdsourceimage-06-06-2021.zip" />
-    <Content Include="App_Data\packages\Articles_Images_Sample_Content-1.zip" />
+    <Content Include="App_Data\packages\2021-Lady-Verndalians-Content_Package-1.0.zip" />
     <None Include="packages.config" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\Shared\BasicLayout.cshtml" />
@@ -296,6 +295,7 @@
     <Content Include="Views\Article\ArticleList.cshtml" />
     <Content Include="Views\Navigation\Header.cshtml" />
     <Content Include="Views\Navigation\Footer.cshtml" />
+    <Content Include="Views\Home\HomePage.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
