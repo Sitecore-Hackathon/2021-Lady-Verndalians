@@ -16,23 +16,22 @@ namespace Feature.AltTextUpdate.Repositories
     {
         public AltTextResult GetImageDescription(Stream image, string descriptionLanguage)
         {
-            byte[] bytes = new byte[image.Length];
-            image.Read(bytes, 0, bytes.Length);
+            byte[] mediaBytes = new byte[image.Length];
+            image.Read(mediaBytes, 0, mediaBytes.Length);
 
             try
             {
                 var result = new AltTextResult();
 
-                var analysis = MakeDescriptiveAnalysisRequestToAzure(bytes, descriptionLanguage);
+                var analyzedImage = RequestImageAnalysisToComputerVisionAPI(mediaBytes, descriptionLanguage);
 
-                if (analysis == null)
-                {
-                    // we had some sort of comm failure, but oddly, no exceptions.
+                if (analyzedImage == null)
+                {                    
                     result.Status = AltTextResult.ResultStatus.NoResponse;
                     return result;
                 }                
 
-                result.Descriptions = GetCaptionsAboveThreshold(analysis);
+                result.Descriptions = GetCaptionsFromImageAnalysis(analyzedImage);
                 result.Description = result.Descriptions.FirstOrDefault();
 
                 return result;
@@ -43,15 +42,14 @@ namespace Feature.AltTextUpdate.Repositories
             }
         }
 
-        private ImageAnalysis MakeDescriptiveAnalysisRequestToAzure(byte[] imageByteArray, string language)
+        private ImageAnalysis RequestImageAnalysisToComputerVisionAPI(byte[] imageByteArray, string language)
         {
-            ImageAnalysis output = null;
-            HttpWebResponse response = null;
-
+            ImageAnalysis analyzedImageStream = null;
+            
             try
             {
                 // https://hackathon2021.cognitiveservices.azure.com/vision/v2.1/analyze?visualFeatures=Description,Tags
-                var url = $"{ConfigurationManager.AppSettings["cognitiveServicesUri"]}vision/v2.0/analyze?visualFeatures=Description,Tags";
+                var url = $"{ConfigurationManager.AppSettings["cognitiveServicesUri"]}{ConfigurationManager.AppSettings["cognitiveComputerVisionUrlPart"]}{ConfigurationManager.AppSettings["visualFeaturesParams"]}";
                 var request = WebRequest.CreateHttp(new Uri(url));
                 request.ContentType = "application/octet-stream";
                 var subscriptionKey = ConfigurationManager.AppSettings["subscriptionKey"];
@@ -62,31 +60,22 @@ namespace Feature.AltTextUpdate.Repositories
                 requestStream.Write(imageByteArray, 0, imageByteArray.Length);
                 requestStream.Close();
 
-
-                response = (HttpWebResponse)request.GetResponse();
-
-
-                if (response.StatusCode != HttpStatusCode.OK)
-                {
-                    throw new HttpRequestException("did not return success");
-                }
-
-                // ReSharper disable once AssignNullToNotNullAttribute
+                HttpWebResponse response = (HttpWebResponse)request.GetResponse();               
+                                
                 var reader = new StreamReader(response.GetResponseStream());
-                output = JsonConvert.DeserializeObject<ImageAnalysis>(reader.ReadToEnd());
+                analyzedImageStream = JsonConvert.DeserializeObject<ImageAnalysis>(reader.ReadToEnd());
             }
             catch (HttpRequestException ex)
             {
-                Console.WriteLine(ex);
                 throw;
             }
             
-            return output;
+            return analyzedImageStream;
         }
 
-        private IEnumerable<string> GetCaptionsAboveThreshold(ImageAnalysis analysis)
+        private IEnumerable<string> GetCaptionsFromImageAnalysis(ImageAnalysis analysis)
         {
-            var confidenceThreshold = 0.75;
+            var confidenceThreshold = Convert.ToDouble(ConfigurationManager.AppSettings["confidenceThreshold"]);
 
             var captions = new SortedList<double, string>();
 
