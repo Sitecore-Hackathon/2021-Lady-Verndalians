@@ -1,6 +1,5 @@
 ﻿using Feature.AltTextUpdate.Repositories;
 using Sitecore;
-using Sitecore.Diagnostics;
 using Sitecore.SecurityModel;
 using Sitecore.Shell.Framework.Commands;
 using System.Collections.Specialized;
@@ -19,8 +18,8 @@ namespace Feature.AltTextUpdate.Commands
             {
                 var mediaItem = (Sitecore.Data.Items.MediaItem)sitecoreItem;               
 
-                var imageStream = mediaItem.GetMediaStream();               
-                var azureAltTextRepository = new AzureAltTextRepository();
+                var imageStream = mediaItem.GetMediaStream();
+                IAzureAltTextRepository azureAltTextRepository = new AzureAltTextRepository();
                 var altTextResult = azureAltTextRepository.GetImageDescription(imageStream, mediaItem.InnerItem.Language.Name);
 
                 var altText = altTextResult.Description != null ? altTextResult.Description : string.Empty;
@@ -35,7 +34,10 @@ namespace Feature.AltTextUpdate.Commands
                         croudSourcedAltText.Add(key, HttpUtility.UrlEncode(altText));
                         try
                         {
-                            mediaItem.InnerItem["CrowdSourced Alt Text"] = StringUtil.NameValuesToString(croudSourcedAltText, "&");
+                            //mediaItem.InnerItem["CrowdSourced Alt Text"] = StringUtil.NameValuesToString(croudSourcedAltText, "&");
+                            //var urlEncodedText = HttpUtility.UrlEncode(altText);
+                            var urlEncodedText = HttpUtility.UrlEncode(altText);
+                            mediaItem.InnerItem["Alt"] = urlEncodedText;
                         }
                         finally
                         {
@@ -45,24 +47,6 @@ namespace Feature.AltTextUpdate.Commands
                     }
                 }
             }
-        }
-
-
-        public override CommandState QueryState(CommandContext context)
-        {
-            Error.AssertObject((object)context, "context");
-
-            if (context.Items.Length == 0)
-            {
-                return CommandState.Disabled;
-            }
-
-            if (context.Items[0].TemplateID.ToString() != "{DC9E710B-590E-491C-8D38-64157C181BF4}")
-            {
-                return CommandState.Hidden;
-            }
-
-            return base.QueryState(context);
         }
     }
 }

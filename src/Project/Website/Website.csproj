@@ -279,6 +279,7 @@
     <Content Include="App_Config\Include\Feature\Feature.AltTextUpdate.config" />
     <Content Include="App_Config\AppSettings.config" />
     <Content Include="App_Config\Include\Project\Project.SiteDefinitions.config" />
+    <Content Include="App_Config\Include\Feature\Feature.Shell.Media.Image.config" />
     <None Include="packages.config" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\Shared\BasicLayout.cshtml" />
