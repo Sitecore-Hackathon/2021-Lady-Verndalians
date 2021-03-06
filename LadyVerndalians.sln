@@ -22,6 +22,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shell", "Shell", "{D46D0460
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Feature.Shell", "src\Feature\Feature.Shell\Feature.Shell\Feature.Shell.csproj", "{55B11C74-34F6-49B5-8EC8-D23F875712DB}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AltTextUpdate", "AltTextUpdate", "{7AEFA653-E419-43CC-90F4-0191E7F0C4B8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Feature.AltTextUpdate", "src\Feature\Feature.AltTextUpdate\Feature.AltTextUpdate.csproj", "{C5B49CB5-6D45-4A3E-8C00-E2241C7ADFB2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -40,6 +44,10 @@ Global
 		{55B11C74-34F6-49B5-8EC8-D23F875712DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{55B11C74-34F6-49B5-8EC8-D23F875712DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{55B11C74-34F6-49B5-8EC8-D23F875712DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5B49CB5-6D45-4A3E-8C00-E2241C7ADFB2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5B49CB5-6D45-4A3E-8C00-E2241C7ADFB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5B49CB5-6D45-4A3E-8C00-E2241C7ADFB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5B49CB5-6D45-4A3E-8C00-E2241C7ADFB2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -50,6 +58,8 @@ Global
 		{5E168EE7-BD3B-435D-8BB4-4E350FBEC3DA} = {998AE5CD-FB2D-4CE7-94AE-823D4E181DDA}
 		{D46D0460-5985-4A4B-A0F6-73617428EF47} = {74C48F5C-F02E-40A4-9641-85704D5ED7E9}
 		{55B11C74-34F6-49B5-8EC8-D23F875712DB} = {D46D0460-5985-4A4B-A0F6-73617428EF47}
+		{7AEFA653-E419-43CC-90F4-0191E7F0C4B8} = {74C48F5C-F02E-40A4-9641-85704D5ED7E9}
+		{C5B49CB5-6D45-4A3E-8C00-E2241C7ADFB2} = {7AEFA653-E419-43CC-90F4-0191E7F0C4B8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F6748E87-6E42-4DC1-A06C-7E4C517C9D64}
