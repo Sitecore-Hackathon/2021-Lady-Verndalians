@@ -285,6 +285,8 @@
     <Content Include="App_Config\Include\Feature\Feature.Shell.Media.Image.config" />
     <Content Include="App_Config\Include\Project\Project.SiteDefinitions.config" />
     <Content Include="App_Config\Include\Feature\Feature.Shell.Media.Image.config" />
+    <Content Include="App_Data\packages\crowdsourceimage-06-06-2021.zip" />
+    <Content Include="App_Data\packages\Articles_Images_Sample_Content-1.zip" />
     <None Include="packages.config" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\Shared\BasicLayout.cshtml" />
@@ -307,6 +309,10 @@
     <ProjectReference Include="..\..\Feature\Feature.Articles\Feature.Articles.csproj">
       <Project>{939db4c0-5863-4646-b72f-cdcffc420bcd}</Project>
       <Name>Feature.Articles</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Feature\Feature.Shell\Feature.Shell\Feature.Shell.csproj">
+      <Project>{55b11c74-34f6-49b5-8ec8-d23f875712db}</Project>
+      <Name>Feature.Shell</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

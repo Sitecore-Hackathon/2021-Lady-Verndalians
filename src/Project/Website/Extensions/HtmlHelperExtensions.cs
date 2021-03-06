@@ -21,7 +21,7 @@ namespace Website.Extensions
 
             var crowdsourcedtext = regularItem.Fields["CrowdSourced Alt Text"]?.Value;
 
-            var img = $"<img style='max-width:920px' src='{src}' {alt} />";
+            var img = $"<img style='max-width:980px' src='{src}' {alt} />";
 
             if (string.IsNullOrEmpty(crowdsourcedtext))
                 return new HtmlString(img);

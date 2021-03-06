@@ -10,6 +10,11 @@
 
 @Html.HumanizedImage(Model.HeroImage)
 
+<h1>
+    @Html.Raw(Model.ArticleItem.Name)
+</h1>
+Author : @Html.Raw(Model.Author)
+Date : @Html.Raw(Model.Date)
 @Html.Raw(Model.ArticleContent)
 
 <!-- Modal HTML embedded directly into document -->
@@ -41,7 +46,7 @@
         var id = '@heroMediaId';
 
         $.ajax({
-            url: 'api/sitecore/Ajax/AddCrowdSourceChoice',
+            url: '/api/sitecore/Ajax/AddCrowdSourceChoice',
             method: "POST",
             dataType: "json",
             contentType: "application/json; charset=utf-8",
