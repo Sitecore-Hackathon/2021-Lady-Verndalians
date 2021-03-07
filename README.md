@@ -60,7 +60,8 @@ Flow :
 
 
 > - Sitecore Package files
-  - ![Sitecore Content Package](docs/2021-Lady-Verndalians-Content_Package-1.0.zip?raw=true)
+  - ![Sitecore Content Package -1](docs/2021-Lady-Verndalians-Content_Package-1.0.zip?raw=true)
+  - ![Sitecore Content Package -2](docs/2021-Lady-Verndalians-HomePage_Package-1.0.zip?raw=true)
 
 
 ### Configuration
