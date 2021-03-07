@@ -1,0 +1,71 @@
+﻿@using Website.Extensions
+@model Feature.Articles.Models.ArticleModel
+
+@if (Model == null)
+{
+    return;
+}
+
+@Html.HumanizedImage(Model.HeroImage)
+
+<h1>
+    @Html.Raw(Model.ArticleItem.Name)
+</h1>
+Author : @Html.Raw(Model.Author)
+Date : @Html.Raw(Model.Date)
+@Html.Raw(Model.ArticleContent)
+
+<!-- Modal HTML embedded directly into document -->
+<div id="ex1" class="modal">
+    <h2>Help Us Humanize</h2>
+
+    <div style="padding-left:10px;padding-top:10px;">
+        <img style="width:50px" src="/images/venmo.png" />
+    </div>
+
+    <form id="Form1" method="post">
+        <fieldset style="border: none;">
+            <label for="venmo-account">Add your Venmo Account so we can pay you!</label>
+            <input style="display: block;" type="text" name="venmo-account" id="venmo-acct" />
+        </fieldset>
+        <fieldset style="border: none;">
+            <label for="manual-entry">Enter an appropriate phrase for this image</label>
+            <input style="display: block;" type="text" name="manual-entry" required id="input-text" />
+        </fieldset>
+        <fieldset style="border: none;">
+            <button id="submit-tag-choice">Submit</button>
+        </fieldset>
+    </form>
+    <div style="text-align:right;padding-left:10px;padding-top:10px;">
+        <a style="color: #E74C00;" href="#" rel="modal:close">Close</a>  <div> Tweet your experience!</div>
+        <img style="width:50px" src="/images/twitter.png" />
+    </div>
+</div>
+
+@{
+    var heroMediaId = Model.HeroImage.MediaID;
+}
+<script type="text/javascript">
+    $('#submit-tag-choice').click(function(event) {
+        event.preventDefault();
+        this.blur();
+
+        var option = $('#input-text').val();
+        var id = '@heroMediaId';
+
+        $.ajax({
+            url: '/api/sitecore/Ajax/AddCrowdSourceChoice',
+            method: "POST",
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            //method: "POST",
+            data: JSON.stringify({
+                "option": option,
+                "id": id
+            }),
+            success: function (data) {
+                alert('Thank you! Please click on the Twitter logo to tweet about your experience!');
+            }
+        });
+    });
+</script>

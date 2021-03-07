@@ -1,0 +1,13 @@
+﻿@model Feature.Articles.Models.ArticleListModel
+
+<ul>
+    @foreach (var article in Model.Articles)
+    {
+        <li>
+           <a href="@article.ArticleLink">@article.ArticleItem.Name</a>
+        </li>
+    }
+</ul>
+
+
+
