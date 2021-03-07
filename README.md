@@ -17,13 +17,12 @@ The best enhancement to the Sitecore Admin (XP) for Content Editors & Marketers
 ## Description
 Module Purpose : To provide crowd-sourced alt text for images.
 
-What problem was solved? : It is clear that machine learning image recognition for alt text is still evolving and requires human review. However, companies may be too overwhelmed to review and correct auto alt text.
-During this unpresedented pandemic, we have seen the most unemployemnt since the Great Depression.
-- digital demand
+What problem was solved? : As you probably experienced, machine learning image recognition for alt text is still evolving and requires human review. However, companies may be too overwhelmed to review and correct auto alt text.
+In parallel, during this unprecedented pandemic, we have seen the most unemployment since the Great Depression.
 
 How does this module solve it?
 How about we get overwhelmed companies and unemployed people together with crowd-sourcing image alt text?
-We provide an easy way for uneomployed people to get incetivised by companies who simultaneously are experiencing increased engagement and humanized alt text for images.
+We provide an easy way for unemployed people to get incentivized by companies who simultaneously are experiencing increased engagement and help with alt text for images.
 
 ![Lady Verndalian Overview](docs/LadyVerndalianOverview.pptx?raw=true)
 

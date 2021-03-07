@@ -15,7 +15,7 @@ namespace Website.Extensions
 
             var src = Sitecore.StringUtil.EnsurePrefix('/', Sitecore.Resources.Media.MediaManager.GetMediaUrl(imageField.MediaItem));
 
-            var alt =  $" alt={imageField.Alt}";
+            var alt =  $" alt={HttpUtility.HtmlEncode(imageField.Alt)}";
 
             var regularItem = Sitecore.Context.Item.Database.GetItem(imageField.MediaID);
 
@@ -23,8 +23,8 @@ namespace Website.Extensions
 
             var img = $"<img style='max-width:980px' src='{src}' {alt} />";
 
-            if (string.IsNullOrEmpty(crowdsourcedtext))
-                return new HtmlString(img);
+            //if (string.IsNullOrEmpty(crowdsourcedtext))
+            //    return new HtmlString(img);
             
             var wrapper = $"<div style='display:block; max-width:980px'>{img}<a href =\"#ex1\" rel=\"modal:open\" style=\"color: #E74C00;float:right;font-size:smaller;\">Humanize</a></div>";
 

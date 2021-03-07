@@ -288,6 +288,7 @@
     <Content Include="App_Config\Include\Project\Project.SiteDefinitions.config" />
     <Content Include="App_Config\Include\Feature\Feature.Shell.Media.Image.config" />
     <Content Include="App_Data\packages\2021-Lady-Verndalians-Content_Package-1.0.zip" />
+    <Content Include="App_Data\packages\2021-Lady-Verndalians-HomePage_Package-1.0.zip" />
     <None Include="packages.config" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\Shared\BasicLayout.cshtml" />
