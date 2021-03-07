@@ -34,7 +34,7 @@ Flow :
 - Content editor review of alt text in the image media and article image properties. (Rank the alt text by popularity/votes - in media item as well as in the image properties on the content item; auto-populate most popular)
 - Select an alt text tag on one of the images on the content items.
 
-⟹ [Replace this Video link](#video-link)
+⟹ ![Sitecore Content Package -1](docs/LadyVerndaliansfoley.mp4?raw=true)
 
 
 ## Pre-requisites and Dependencies
