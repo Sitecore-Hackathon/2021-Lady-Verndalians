@@ -262,6 +262,9 @@
   <ItemGroup>
     <Content Include="Content\Site.css" />
     <Content Include="Global.asax" />
+    <Content Include="images\twitter.png" />
+    <Content Include="images\venmo.png" />
+    <Content Include="images\venmo_logo_blue.svg" />
     <Content Include="Properties\PublishProfiles\Debug.pubxml.user" />
     <Content Include="sitecore\shell\Applications\Media\ImageProperties\ImageProperties.xaml.xml" />
     <Content Include="Web.config" />
